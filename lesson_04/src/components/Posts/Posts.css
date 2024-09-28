@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  border: 2px dashed black;
+  padding: 10px;
+  min-width: 750px;
+}
+
+.column {
+  min-width: 250px;
+  border: 2px solid black;
+  padding: 10px;
+  box-sizing: border-box;
+  max-height: auto;
+}
+
+.column h3 {
+  margin: 0;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 5px; 
+}
+
+button {
+  margin-right: 5px; 
+}
