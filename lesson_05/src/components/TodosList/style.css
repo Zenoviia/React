@@ -1,0 +1,4 @@
+.todos__item--completed {
+    color: rgb(204, 81, 188);
+    font-weight: bold;
+  }

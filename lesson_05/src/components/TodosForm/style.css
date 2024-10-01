@@ -1,0 +1,8 @@
+.todos__form {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  margin-bottom: 10px;
+  width: fit-content;
+  border: 1px solid black;
+}
