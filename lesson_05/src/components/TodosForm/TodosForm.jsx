@@ -1,15 +1,14 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import "./style.css";
 import service from "../../services/todos";
+import FormButton from "../Buttons/FormButton/FormButton";
 
-export default function TodosForm( {liftingNewTodo} ) {
+export default function TodosForm({ liftingNewTodo }) {
   const DEFAULT_NEW_TODO = {
-    title: "Hi:)",
+    title: "Input title",
     completed: true,
   };
   const [newTodo, setNewTodo] = useState(DEFAULT_NEW_TODO);
-
-  const formRef = useRef();
 
   const handleNewTodoTitle = (event) => {
     setNewTodo((prevState) => ({ ...prevState, title: event.target.value }));
@@ -26,13 +25,10 @@ export default function TodosForm( {liftingNewTodo} ) {
     e.preventDefault();
     const response = await service.post(newTodo);
     liftingNewTodo(response);
-
-    setNewTodo(DEFAULT_NEW_TODO);
-    formRef.current.reset();
   };
 
   return (
-    <form ref={formRef} className="todos__form" onSubmit={handleNewTodoSubmit}>
+    <form className="todos__form" onSubmit={handleNewTodoSubmit}>
       {" "}
       <label>
         Title:{" "}
@@ -50,7 +46,7 @@ export default function TodosForm( {liftingNewTodo} ) {
           onChange={handleNewTodoCompleted}
         />
       </label>
-      <button>Add new todo</button>
+      <FormButton />
     </form>
   );
 }

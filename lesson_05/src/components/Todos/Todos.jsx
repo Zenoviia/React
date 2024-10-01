@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import "./style.css";
 import TodosForm from "../TodosForm/TodosForm";
 import TodosList from "../TodosList/TodosList";
 

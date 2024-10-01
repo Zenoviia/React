@@ -1,16 +1,17 @@
 import React, { useState, useEffect, useMemo } from "react";
 import service from "../../services/todos";
-import './style.css'
+import "./style.css";
+import ListButton from "../Buttons/ListButton/ListButton";
 
 export default function TodosList({ newTodo }) {
   const [todos, setTodos] = useState([]);
 
-//   const sortedTodos = useMemo(
-//     () => todos.sort((a, b) => b.completed - a.completed),
-//     [todos]
-//   );
+  //   const sortedTodos = useMemo(
+  //     () => todos.sort((a, b) => b.completed - a.completed),
+  //     [todos]
+  //   );
 
-  const sortedTodos = todos.sort((a,b) => b.completed - a.completed)
+  const sortedTodos = todos.sort((a, b) => b.completed - a.completed);
 
   const getTodos = async () => {
     const response = await service.get();
@@ -50,8 +51,8 @@ export default function TodosList({ newTodo }) {
     <ul>
       {sortedTodos.map((item) => (
         <li key={item.id} className={getClassName(item)}>
-          {item.title}{" "}
-          <button onClick={() => handleItemDelete(item.id)}>Delete item</button>{" "}
+          {item.title}
+          <ListButton onClick={() => handleItemDelete(item.id)} />{" "}
           <input
             type="checkbox"
             defaultChecked={item.completed}
